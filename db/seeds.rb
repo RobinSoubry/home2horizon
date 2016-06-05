@@ -67,4 +67,9 @@ mongul_ids = [13,21,36,41,51,1]
 mongul_rally.users << User.find(mongul_ids)
 
 
-
+# # Create Brand Owners
+brands.each do |brand|
+  rand(1..3).times do
+    brand.users << seed_users.sample
+  end
+end
