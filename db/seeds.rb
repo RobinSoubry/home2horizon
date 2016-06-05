@@ -55,3 +55,16 @@ brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
                 :brand_description   => Faker::Lorem.paragraph,
                 :sponsorship_rules   => Faker::Lorem.paragraph)
 end
+
+# Populate projects with team members
+corsicat_ids = [1,2,3,4,5,6]
+corsicat.users << User.find(corsicat_ids)
+
+socotra_ids = [11,23,35,46,59,61]
+socotra.users << User.find(socotra_ids)
+
+mongul_ids = [13,21,36,41,51,1]
+mongul_rally.users << User.find(mongul_ids)
+
+
+
