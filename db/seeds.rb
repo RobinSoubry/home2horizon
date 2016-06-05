@@ -67,9 +67,19 @@ mongul_ids = [13,21,36,41,51,1]
 mongul_rally.users << User.find(mongul_ids)
 
 
-# # Create Brand Owners
+# Create Brand Owners
 brands.each do |brand|
   rand(1..3).times do
     brand.users << seed_users.sample
   end
+end
+
+# Create Requests
+20.times do
+  Request.create(
+    brand_id: rand(1..brands.length),
+    project_id: rand(1..projects.length),
+    special_note: "I'm in test",
+    status: rand(0..1)
+    )
 end
