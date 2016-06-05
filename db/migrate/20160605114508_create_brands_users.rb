@@ -1,10 +1,8 @@
 class CreateBrandsUsers < ActiveRecord::Migration
   def change
     create_table :brands_users do |t|
-      t.integer :brand_id, null: false
-      t.integer :user_id, null: false
-
-      t.timestamps
+      t.belongs_to :brand, index: true
+      t.belongs_to :user, index: true
     end
   end
 end
