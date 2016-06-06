@@ -106,3 +106,12 @@ a.instagram:hover{background-position:-90px 0;}
 
 a.mail{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -150px -30px; width:30px; height:30px;}
 a.mail:hover{background-position:-150px 0;}
+
+/*Google Maps*/
+#map-canvas {
+    width: 640px;
+    height: 400px;
+    background-color: #CCC;
+    float: left;
+    margin-left: 10px;
+}
