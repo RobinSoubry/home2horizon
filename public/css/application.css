@@ -22,7 +22,6 @@
     background-color: black;
 }
 
-
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -30,7 +29,7 @@
     background-color:rgba(255,255,255,.8);
 }
 #login-dp .help-block{
-    font-size:12px    
+    font-size:12px
 }
 #login-dp .bottom{
     background-color:rgba(255,255,255,.8);
@@ -39,7 +38,7 @@
     padding:14px;
 }
 #login-dp .social-buttons{
-    margin:12px 0    
+    margin:12px 0
 }
 #login-dp .social-buttons a{
     width: 49%;
@@ -54,7 +53,7 @@
 }
 .btn-fb:hover{
     color: #fff;
-    background-color:#496ebc 
+    background-color:#496ebc
 }
 .btn-tw{
     color: #fff;
@@ -75,7 +74,44 @@
     }
 }
 
-#tag-line{
-  margin-top: -200px;
-  color: gold;
+/*Footer*/
+
+.copyright{
+  width: 66%;
+  height: 24px;
+}
+
+.copyright > p {
+  margin: 0 auto;
+  padding: 2px;
+  text-align: center;
+}
+
+.social-links{
+  width: 34%;
+  height: 24px;
+}
+
+.social-links a{
+  float: right;
+  margin-right: 4px;
+}
+
+a.facebook{display:block; background: url(../assets/hh_social_sprite.png) no-repeat 0 -30px; width:30px; height:30px;}
+a.facebook:hover{background-position: 0 0;}
+
+a.instagram{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -90px -30px; width:30px; height:30px;}
+a.instagram:hover{background-position:-90px 0;}
+
+a.mail{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -150px -30px; width:30px; height:30px;}
+a.mail:hover{background-position:-150px 0;}
+
+/*Google Maps*/
+
+#map-canvas {
+    width: 100%;
+    height: 600px;
+    background-color: #CCC;
+    float: left;
+    margin-left: 10px;
 }
