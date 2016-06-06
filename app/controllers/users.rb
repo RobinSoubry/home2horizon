@@ -1,21 +1,40 @@
-# aka Register
-get '/users/new' do
-  erb :'users/new'
-end
-
-post '/users/new' do
-  @user = User.new(username: params[:username], password: params[:password])
-  if @user.save
-    session[:id] = @user.id
-    redirect '/'
+post '/login' do
+    @user = User.find_by_email(params[:email])
+  if @user.password == params[:password]
+    session[:user_id] = @user.id
+    redirect "/"
   else
-    #error handling goes here
-    redirect '/users/new'
+    redirect '/fail'
   end
 end
 
-#aka Profile page
-get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :'users/show'
+get '/register' do
+  erb :'users/register'
+end
+
+def create
+  @user = User.new(params[:user])
+  @user.password = params[:password]
+  @user.save!
+end
+
+post '/users' do
+  if create
+      # After registration the user automatically gets access his views
+    @user = User.find_by_email(params[:user][:email])
+    session[:user_id] = @user.id
+    redirect "/profile"
+  else
+    erb :'users/register'
+  end
+end
+
+get '/logout' do
+  session[:user_id] = nil
+  redirect '/'
+end
+
+get '/profile' do
+  @user = User.find(session[:user_id])
+  erb :'users/profile'
 end

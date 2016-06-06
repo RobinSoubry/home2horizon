@@ -1,24 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
+  <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+  
+  <meta charset="utf-8">
+  <title>Home-to-Horizon</title>
+  <link rel="shortcut icon" type="image/png" href="../../assets/hh_favicon.png">
+  <meta name="description" content="Sponsoring Application">
+  <meta name="author" content="Robin Soubry">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/application.css">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
 </head>
 <body>
- <%= yield %>
 
+<nav class="navbar navbar-default navbar" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="../../assets/hh_logo.png" alt="logo Home to Horizon"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="projects">Explore</a></li>
+        <li><a href="/contribute">Contribute</a></li>
+      </ul>
+      
+      <% if session[:user_id] %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><span class="glyphicon glyphicon-user"></span> My Horizon</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="bottom text-center">
+                    <a href="/profile"><b>Profile</b></a>
+                      <p class="divider"></p>
+                      <a href="/logout"><b>Logout</b></a>
+                  </div>
+               </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="col-md-12">
+                    <!-- Login via
+                    <div class="social-buttons">
+                      <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                      <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                    </div> -->
+                                    <!-- or -->
+                     <form class="form" role="form" method="post" action="/login" accept-charset="UTF-8" id="login-nav">
+                        <div class="form-group">
+                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                           <input type="email" class="form-control" name="email" id="exampleInputEmail2" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                           <label class="sr-only" for="exampleInputPassword2">Password</label>
+                           <input type="password" class="form-control" name="password" id="exampleInputPassword2" placeholder="Password" required>
+    <!--                                              <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+     -->                    </div>
+                        <div class="form-group">
+                           <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="bottom text-center">
+                    New here ? <a href="/register"><b>Join Us</b></a>
+                  </div>
+               </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <%= yield %>
 </body>
 </html>
