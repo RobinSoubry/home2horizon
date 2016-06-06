@@ -8,4 +8,7 @@ post '/login' do
   end
 end
 
+get '/register' do
+  erb :'users/register'
+end
 
