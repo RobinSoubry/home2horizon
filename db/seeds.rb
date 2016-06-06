@@ -11,19 +11,20 @@ Like.delete_all
 seed_users = 75.times.map do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
+  sports = ["Climbing", "Sailing", "Snowboarding", "Paragliding", "Scuba Diving", "Kiteboarding", "Traveling", "Kayaking"]
 
   User.create!( :first_name => first_name,
                 :last_name  => last_name,
                 :email      => "#{first_name}.#{last_name}@gmail.com",
                 :username   => "#{first_name}#{last_name}",
                 :password   => '123',
-                :personal_description => Faker::Lorem.paragraph,
+                :personal_description => "Hi, my name is #{first_name} #{last_name} and I like #{sports.sample}",
                 :profile_pic_url => Faker::Avatar.image
                 )
 end
 
 # Create Projects
-corsicat = Project.create!(project_name: "CorsiCat",
+corsicat = Project.new(project_name: "CorsiCat",
                   project_description: "Circumnavigation of Corsica: 750 Miles of sailing with an 18' Hobiecat Tiger",
                   tags: ["Sailing","Catamaran","Corsica","France","Hobiecat"],
                   lat: 42.142527,
@@ -33,7 +34,7 @@ corsicat = Project.create!(project_name: "CorsiCat",
                   facebook_url: "https://www.facebook.com/corsicat.360"
                   )
 
-socotra = Project.create!(project_name: "Socotra, The forgotten Island",
+socotra = Project.new(project_name: "Socotra, The forgotten Island",
                   project_description: "Paragliding in on the forgotten island of Socotra",
                   tags: ["Paragliding","Yemen","Socotra","Remote","Adventure"],
                   lat: 12.492308,
@@ -43,7 +44,7 @@ socotra = Project.create!(project_name: "Socotra, The forgotten Island",
                   facebook_url: "https://www.facebook.com/Socotra-Island-paragliding-surfing-292182224230190/"
                   )
 
-mongul_rally = Project.create!(project_name: "Mongol Rally -Team TLP",
+mongul_rally = Project.new(project_name: "Mongol Rally -Team TLP",
                   project_description: "Rally from Brussels to Mongolia",
                   tags: ["Rally","Race","Mongolia","Transasia","Travel"],
                   lat: 47.207093,
@@ -55,16 +56,6 @@ mongul_rally = Project.create!(project_name: "Mongol Rally -Team TLP",
 
 projects = [corsicat, socotra, mongul_rally]
 
-
-# Create Brands
-brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
- "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research", 
- "Millet", "Helly Hansen", "Ortlieb", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
-  Brand.create!(:brand_name            => name,
-                :brand_description   => Faker::Lorem.paragraph,
-                :sponsorship_rules   => Faker::Lorem.paragraph)
-end
-
 # Populate projects with team members
 corsicat_ids = [1,2,3,4,5,6]
 corsicat.users << User.find(corsicat_ids)
@@ -75,6 +66,19 @@ socotra.users << User.find(socotra_ids)
 mongul_ids = [13,21,36,41,51,1]
 mongul_rally.users << User.find(mongul_ids)
 
+# Save projects
+corsicat.save
+socotra.save
+mongul_rally.save
+
+# Create Brands
+brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
+ "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research",
+ "Millet", "Helly Hansen", "Ortlieb", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
+  Brand.create!(:brand_name            => name,
+                :brand_description   => Faker::Lorem.paragraph,
+                :sponsorship_rules   => Faker::Lorem.paragraph)
+end
 
 # Create Brand Owners
 brands.each do |brand|
