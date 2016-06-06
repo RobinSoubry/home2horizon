@@ -34,3 +34,7 @@ get '/logout' do
   redirect '/'
 end
 
+get '/profile' do
+  @user = User.find(session[:user_id])
+  erb :'users/profile'
+end
