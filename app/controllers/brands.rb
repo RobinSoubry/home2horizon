@@ -1,9 +1,9 @@
 get '/contribute' do
-  erb :'/contribute'
+  erb :'/brands/contribute'
 end
 
 get '/brands/new' do
-  erb :'/new_brand'
+  erb :'brands/new_brand'
 end
 
 post 'brands' do
