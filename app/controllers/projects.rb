@@ -1,3 +1,3 @@
 get '/projects' do
-  erb :'explore'
+  erb :'projects/explore'
 end
