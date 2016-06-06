@@ -109,8 +109,8 @@ a.mail:hover{background-position:-150px 0;}
 
 /*Google Maps*/
 #map-canvas {
-    width: 640px;
-    height: 400px;
+    width: 100%;
+    height: 550px;
     background-color: #CCC;
     float: left;
     margin-left: 10px;
