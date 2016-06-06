@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+  <!-- TO DO : set default image if none set -->
+    <img src="<%= @project.cover_img_url %>" class="img-responsive" alt="<%= @project.project_name %>">
+  </div>
+
+  <div class="row text-center">
+  <h2 class="bg-info">Featured Projects</h2>
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+
+    <div class="col-lg-4 col-md-4"> <!-- Panel 1 -->
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>Team members</h3>
+          </div>
+          <div class="panel-footer">
+          <% @members.each do |member| %>
+              <a href="/users/<%= member.username %>"><span class="text-left"><%= member.username %></span></a><br><br>
+          <% end %>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+</div>
