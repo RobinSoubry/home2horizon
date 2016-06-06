@@ -1,7 +1,118 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+.navbar-brand>img {
+  width: 90%;
+  padding: 10px;
+  margin: auto;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
+.nav >li >a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.navbar-toggle {
+  padding: 10px;
+  margin: 15px 15px 15px 0;
+  color: red;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
+/*Footer*/
+
+.copyright{
+  width: 66%;
+  height: 24px;
+}
+
+.copyright > p {
+  margin: 0 auto;
+  padding: 2px;
+  text-align: center;
+}
+
+.social-links{
+  width: 34%;
+  height: 24px;
+}
+
+.social-links a{
+  float: right;
+  margin-right: 4px;
+}
+
+a.facebook{display:block; background: url(../assets/hh_social_sprite.png) no-repeat 0 -30px; width:30px; height:30px;}
+a.facebook:hover{background-position: 0 0;}
+
+a.instagram{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -90px -30px; width:30px; height:30px;}
+a.instagram:hover{background-position:-90px 0;}
+
+a.mail{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -150px -30px; width:30px; height:30px;}
+a.mail:hover{background-position:-150px 0;}
+
+
+/*Google Maps*/
+#map-canvas {
+    width: 100%;
+    height: 550px;
+    background-color: #CCC;
+    float: left;
+    margin-left: 10px;
+}
