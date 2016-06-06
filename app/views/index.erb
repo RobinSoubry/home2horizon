@@ -1,24 +1,73 @@
 <div class="container">
-  <img src="../../assets/hh_cover.jpg" class="img-responsive" alt="Beto Pandiani - Crossing to Antarctica">
-    <div class="text-center" id="tag-line">
-      <h1>Welcome Home</h1>
-      <h3>Home to Horizon - Unique stories of adventure</h3>
+  <div class="row">
+    <img src="../../assets/hh_cover.jpg" class="img-responsive" alt="Beto Pandiani - Crossing to Antarctica">
+      <div class="text-center" id="tag-line">
+        <h1>Welcome Home</h1>
+        <h3>Home to Horizon - Unique stories of adventure</h3>
+      </div>
+  </div>
+
+  <div class="row text-center">
+  <h2 class="bg-info">Featured Projects</h2>
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+  <% @featured_projects.each do |project| %>
+    <div class="col-lg-4 col-md-4"> <!-- Panel 1 -->
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <img src="<%= project.cover_img_url %>" class="img-responsive" alt="<%= project.project_name %>">
+          </div>
+          <a href="/projects/<%= project.id %>">
+              <div class="panel-footer">
+                  <span class="pull-left"><%= project.project_name %></span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                  <div class="clearfix"></div>
+              </div>
+          </a>
+      </div>
     </div>
-    <hr>
-    <div class="row">
-    <div class="col-sm-4">
-      <img src="../../assets/hh_cover.jpg" class="img-responsive" alt="Beto Pandiani - Crossing to Antarctica">
+  <% end %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6"> <!-- Image -->
+      <img src="../../assets/hh_start_project.jpg" class="img-responsive" alt="Tibetan Flags">
     </div>
-    
-    <div class="col-sm-4">
-      <img src="../../assets/hh_cover.jpg" class="img-responsive" alt="Beto Pandiani - Crossing to Antarctica">
-    </div>
-    
-    <div class="col-sm-4">
-      <img src="../../assets/hh_cover.jpg" class="img-responsive" alt="Beto Pandiani - Crossing to Antarctica">
-    </div>
+    <div class="col-md-6"> <!-- Form -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Start your own project</h3>
+        </div>
+        <div class="panel-body">
+          <form action="/projects/new" method="post">
+            <div class="row">
+              <div class="form-group">
+                <input type="text" name="user[last_name]" id="project_name" class="form-control input-sm" placeholder="Project Name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-info btn-block">
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
 
 
 
+
     </div>
+
+  </div>
+
 </div>

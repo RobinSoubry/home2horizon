@@ -1,3 +1,4 @@
 get '/' do
-  erb :index  
+  @featured_projects = Project.limit(3).order("RANDOM()")
+  erb :index
 end

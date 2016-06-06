@@ -54,7 +54,17 @@ mongul_rally = Project.new(project_name: "Mongol Rally -Team TLP",
                   facebook_url: "https://www.facebook.com/mongolrallytlp/"
                   )
 
-projects = [corsicat, socotra, mongul_rally]
+talisker = Project.new(project_name: "Talisker Whiskey Atlantic Challenge",
+                  project_description: "The Talisker Whisky Atlantic Challenge is billed as the world's toughest rowing race.",
+                  tags: ["Rally","Race","Transatlantic","Rowing"],
+                  lat: 47.207093,
+                  lng: 95.660595,
+                  logo_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/11667376_1617745395160296_6159456086922707907_n.jpg?oh=aa35f70a53eb17bec5c054955cbb0035&oe=57D62F12",
+                  cover_img_url: "http://ichef.bbci.co.uk/news/624/media/images/72474000/jpg/_72474788_1557678_501084753343163_1371455338_n.jpg",
+                  facebook_url: "https://www.facebook.com/mongolrallytlp/"
+                  )
+
+projects = [corsicat, socotra, mongul_rally, talisker]
 
 # Populate projects with team members
 corsicat_ids = [1,2,3,4,5,6]
@@ -66,16 +76,20 @@ socotra.users << User.find(socotra_ids)
 mongul_ids = [13,21,36,41,51,1]
 mongul_rally.users << User.find(mongul_ids)
 
+talisker_ids = [15,21]
+talisker.users << User.find(talisker_ids)
+
 # Save projects
 corsicat.save
 socotra.save
 mongul_rally.save
+talisker.save
 
 # Create Brands
 brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
  "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research",
  "Millet", "Helly Hansen", "Ortlieb", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
-  Brand.create!(:brand_name            => name,
+  Brand.new(:brand_name            => name,
                 :brand_description   => Faker::Lorem.paragraph,
                 :sponsorship_rules   => Faker::Lorem.paragraph)
 end
@@ -84,6 +98,7 @@ end
 brands.each do |brand|
   rand(1..3).times do
     brand.users << seed_users.sample
+    brand.save
   end
 end
 

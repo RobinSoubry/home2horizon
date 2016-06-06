@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  
+
   <meta charset="utf-8">
   <title>Home-to-Horizon</title>
   <link rel="shortcut icon" type="image/png" href="../../assets/hh_favicon.png">
@@ -16,7 +16,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/application.css">  
+  <link rel="stylesheet" href="/css/application.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Scripts -->
@@ -47,7 +47,7 @@
         <li><a href="projects">Explore</a></li>
         <li><a href="/contribute">Contribute</a></li>
       </ul>
-      
+
       <% if session[:user_id] %>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -108,5 +108,19 @@
   </div><!-- /.container-fluid -->
 </nav>
   <%= yield %>
+
+<footer>
+  <div class="row">
+    <div class="copyright text-center col-md-6">
+      <p>&copy; HomeToHorizon - 2016</p>
+    </div>
+    <div class="social-links col-md-6 text-center">
+      <a href="mailto:robin.soubry@gmail.com?Subject=Hello" class="mail"></a>
+      <a href="https://www.facebook.com/robin.soubry/" target="_blank" class="facebook"></a>
+      <a href="https://www.instagram.com/robinsoubry/" target="_blank" class="instagram"></a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
