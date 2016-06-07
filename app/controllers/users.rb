@@ -37,6 +37,7 @@ end
 get '/profile' do
   @user = User.find(session[:user_id])
   @projects = Project.find(@user.projects.ids)
+  @projects = @projects.group_by {|project| project.status}
   @sponsored_requests = @user.project_requests.select { |request| request.status == 1 }
   @sponsoring_brands = @sponsored_requests.map(&:brand).uniq!
   erb :'users/profile'

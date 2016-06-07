@@ -31,7 +31,10 @@ corsicat = Project.new(project_name: "CorsiCat",
                   lng: 9.115410,
                   logo_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/46076_590917034259217_1331710102_n.jpg?oh=645bfd77224fb5adee59140704402246&oe=57C88B98",
                   cover_img_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/1170784_722532904430962_73177735_n.jpg?oh=9daf187a85308c9e308cac9fdb7496e3&oe=57DA2296",
-                  facebook_url: "https://www.facebook.com/corsicat.360"
+                  facebook_url: "https://www.facebook.com/corsicat.360",
+                  target_audience: "Many fans of your brand",
+                  sponsorship_format: "We are looking equipment or financial aid",
+                  status: 1
                   )
 
 socotra = Project.new(project_name: "Socotra, The forgotten Island",
@@ -41,7 +44,10 @@ socotra = Project.new(project_name: "Socotra, The forgotten Island",
                   lng: 53.823677,
                   logo_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/10622784_625164854265257_3194957668341073425_n.jpg?oh=64febaf5357603dad470a624eda656e4&oe=57CEB725",
                   cover_img_url: "https://s-media-cache-ak0.pinimg.com/564x/65/e0/a2/65e0a2a25ea588592a8c6847ae225645.jpg",
-                  facebook_url: "https://www.facebook.com/Socotra-Island-paragliding-surfing-292182224230190/"
+                  facebook_url: "https://www.facebook.com/Socotra-Island-paragliding-surfing-292182224230190/",
+                  target_audience: "Many fans of your brand",
+                  sponsorship_format: "We are looking equipment or financial aid",
+                  status: 1
                   )
 
 mongul_rally = Project.new(project_name: "Mongol Rally -Team TLP",
@@ -51,7 +57,10 @@ mongul_rally = Project.new(project_name: "Mongol Rally -Team TLP",
                   lng: 95.660595,
                   logo_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/11667376_1617745395160296_6159456086922707907_n.jpg?oh=aa35f70a53eb17bec5c054955cbb0035&oe=57D62F12",
                   cover_img_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/11692801_1617744951827007_81233844116250992_n.jpg?oh=64ef7b22a4d24a9fd444c0e54174b775&oe=57C28744",
-                  facebook_url: "https://www.facebook.com/mongolrallytlp/"
+                  facebook_url: "https://www.facebook.com/mongolrallytlp/",
+                  target_audience: "Many fans of your brand",
+                  sponsorship_format: "We are looking equipment or financial aid",
+                  status: 0
                   )
 
 talisker = Project.new(project_name: "Talisker Whiskey Atlantic Challenge",
@@ -61,7 +70,10 @@ talisker = Project.new(project_name: "Talisker Whiskey Atlantic Challenge",
                   lng: 95.660595,
                   logo_url: "https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-9/11667376_1617745395160296_6159456086922707907_n.jpg?oh=aa35f70a53eb17bec5c054955cbb0035&oe=57D62F12",
                   cover_img_url: "http://ichef.bbci.co.uk/news/624/media/images/72474000/jpg/_72474788_1557678_501084753343163_1371455338_n.jpg",
-                  facebook_url: "https://www.facebook.com/mongolrallytlp/"
+                  facebook_url: "https://www.facebook.com/mongolrallytlp/",
+                  target_audience: "Many fans of your brand",
+                  sponsorship_format: "We are looking equipment or financial aid",
+                  status: 1
                   )
 
 projects = [corsicat, socotra, mongul_rally, talisker]
@@ -70,13 +82,13 @@ projects = [corsicat, socotra, mongul_rally, talisker]
 corsicat_ids = [1,2,3,4,5,6]
 corsicat.users << User.find(corsicat_ids)
 
-socotra_ids = [11,23,35,46,59,61]
+socotra_ids = [1,23,35,46,59,61]
 socotra.users << User.find(socotra_ids)
 
 mongul_ids = [13,21,36,41,51,1]
 mongul_rally.users << User.find(mongul_ids)
 
-talisker_ids = [15,21]
+talisker_ids = [15,21,1]
 talisker.users << User.find(talisker_ids)
 
 # Save projects
@@ -90,8 +102,8 @@ brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
  "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research",
  "Millet", "Helly Hansen", "Ortlieb", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
   Brand.new(:brand_name            => name,
-                :brand_description   => Faker::Lorem.paragraph,
-                :sponsorship_rules   => Faker::Lorem.paragraph)
+            :brand_description   => Faker::Lorem.paragraph,
+            :sponsorship_rules   => Faker::Lorem.paragraph)
 end
 
 # Create Brand Owners
