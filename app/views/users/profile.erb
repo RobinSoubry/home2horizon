@@ -9,9 +9,11 @@
     <div class="col-md-8 text-left">
       <h2><%= @user.username %></h2><br>
       <p><%= @user.personal_description %></p>
+      <% if @user.id == session[:user_id] %>
       <div class="bottom-align-text">
         <a href="/profile/edit">edit</a>
       </div>
+      <% end %>
     </div>
   </div>
 
