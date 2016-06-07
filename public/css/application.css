@@ -120,7 +120,17 @@ a.mail:hover{background-position:-150px 0;}
 .cover {
   width: 100%;
   display: block;
+}
+
+.project-cover{
   height: 400px;
+}
+
+.thumbnail{
+  width: 100%;
+  display: block;
+  height: 175px;
+
 }
 
 .project-description{
