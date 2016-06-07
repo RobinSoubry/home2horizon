@@ -115,3 +115,24 @@ a.mail:hover{background-position:-150px 0;}
     float: left;
     margin-left: 10px;
 }
+
+/* Image Styling */
+.cover {
+  width: 100%;
+  display: block;
+}
+
+.project-cover{
+  height: 400px;
+}
+
+.thumbnail{
+  width: 100%;
+  display: block;
+  height: 175px;
+
+}
+
+.project-description{
+  height: 400px;
+}
