@@ -11,9 +11,17 @@
   <hr>
 
   <div class="row">
-
-
-    <div class="col-lg-4 col-md-4"> <!-- Panel 1 -->
+  <div class="col-md-6"> <!-- Team members -->
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3><%= @project.project_name %></h3>
+          </div>
+          <div class="panel-footer">
+          <p><%= @project.project_description %></p>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-6"> <!-- Team members -->
       <div class="panel panel-primary">
           <div class="panel-heading">
             <h3>Team members</h3>
@@ -25,7 +33,23 @@
           </div>
       </div>
     </div>
+  </div>
 
+
+  <div class="row">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>Audience</h3>
+      </div>
+      <div class="panel-footer">
+        <dl class="dl-horizontal">
+        <dt>Target Audience:</dt>
+        <dd><%= @project.target_audience %></dd>
+        <dt>Desired Sponsorship:</dt>
+        <dd><%= @project.sponsorship_format %></dd>
+      </dl>
+      </div>
+    </div>
   </div>
 
   <hr>

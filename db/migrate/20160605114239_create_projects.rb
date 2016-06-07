@@ -11,6 +11,9 @@ class CreateProjects < ActiveRecord::Migration
       t.string :facebook_url
       t.string :twitter_handle
       t.string :instagram_url
+      t.text :target_audience
+      t.text :sponsorship_format
+      t.integer :status
 
       t.timestamps
     end
