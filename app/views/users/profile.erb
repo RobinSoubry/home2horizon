@@ -19,12 +19,35 @@
 
   <div class="row">
     <% if !@projects.empty? %>
-    <h3>Your Projects</h3>
-    <ul>
-    <% @projects.each do |project| %>
-      <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
-      <% end %>
-    </ul>
+        <% if @projects.has_key?(1) && @projects.has_key?(0) %>
+          <h3>Your current projects</h3>
+          <ul>
+          <% @projects[1].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+          <hr>
+          <h3>Your past projects</h3>
+          <ul>
+          <% @projects[0].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% elsif @projects.has_key?(1) %>
+          <h3>Your current projects</h3>
+          <ul>
+          <% @projects[1].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% else @projects.has_key?(0) %>
+          <h3>Your current projects</h3>
+          <ul>
+          <% @projects[0].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
     <% else %>
     <h3>You have no projects</h3>
     <a href="/projects/new">You have no projects</a>
