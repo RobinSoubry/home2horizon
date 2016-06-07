@@ -115,7 +115,7 @@ brands.each do |brand|
 end
 
 # Create Requests
-20.times do
+50.times do
   Request.create(
     brand_id: rand(1..brands.length),
     project_id: rand(1..projects.length),

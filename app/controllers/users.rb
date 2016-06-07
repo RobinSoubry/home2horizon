@@ -39,6 +39,21 @@ get '/profile' do
   @projects = Project.find(@user.projects.ids)
   @projects = @projects.group_by {|project| project.status}
   @sponsored_requests = @user.project_requests.select { |request| request.status == 1 }
-  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq!
+  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq
   erb :'users/profile'
 end
+
+get '/users/:username' do
+  @user = User.find_by(username: params[:username])
+  @projects = Project.find(@user.projects.ids)
+  @projects = @projects.group_by {|project| project.status}
+  @sponsored_requests = @user.project_requests.select { |request| request.status == 1 }
+  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq
+  erb :'users/profile'
+end
+
+
+
+
+
+
