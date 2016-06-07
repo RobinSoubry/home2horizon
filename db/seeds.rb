@@ -158,7 +158,7 @@ hanuman_airlines.save
 # Create Brands
 brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
  "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research",
- "Millet", "Helly Hansen", "Ortlieb", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
+ "Millet", "Helly Hansen", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
   Brand.new(:brand_name            => name,
             :brand_description   => Faker::Lorem.paragraph,
             :sponsorship_rules   => Faker::Lorem.paragraph)
