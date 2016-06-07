@@ -61,11 +61,16 @@
   <div class="row">
       <% if !@projects.empty? %>
       <h3>Your Sponsors</h3>
-      <ul>
-      <% @sponsoring_brands.each do |brand| %>
-        <li><a href="/brands/<%= brand.id %>"><%= brand.brand_name %></a></li>
+
+        <% @sponsoring_brands.each do |brand| %>
+        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
+          <% if @user.id == session[:user_id] %>
+            <a href="/brands/<%= brand.id %>"><img src="<%= brand.logo %>" alt="" class="sponsor-thumb"></a>
+        <% else %>
+          <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb img-rounded"></a>
         <% end %>
-      </ul>
+        </div>
+      <% end %>
       <% else %>
       <h3>You have no Sponsors</h3>
       <a href="/brands">Look for a sponsor!</a>
