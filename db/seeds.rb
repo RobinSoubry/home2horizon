@@ -156,12 +156,32 @@ qajaqtuqtut.save
 hanuman_airlines.save
 
 # Create Brands
-brands = ["The North Face", "Marmot ", "Ice Breaker", "Patagonia",
- "Petzl", "Salomon", "Sea To Summit", "Clif", "Merell", "Outdoor Research",
- "Millet", "Helly Hansen", "Smartwool", "Garmin", "GoPro", "Fitbit"].map do |name|
-  Brand.new(:brand_name            => name,
-            :brand_description   => Faker::Lorem.paragraph,
-            :sponsorship_rules   => Faker::Lorem.paragraph)
+brands = []
+brands_h = {
+  "The North Face" => "assets/logos/hh_the_north_face.png", 
+  "Marmot" => "assets/logos/hh_marmot.png",
+  "Ice Breaker" => "assets/logos/hh_icebreaker.png",
+  "Patagonia" => "assets/logos/hh_patagonia.png",
+  "Petzl" => "assets/logos/hh_petzl.png",
+  "Salomon" => "assets/logos/hh_salomon.png",
+  "Sea To Summit" => "assets/logos/hh_sea_to_summit.png",
+  "Cliff" => "assets/logos/hh_cliff.png",
+  "Merell" => "assets/logos/hh_merrell.png",
+  "Outdoor Research" => "assets/logos/hh_outdoor_research.png",
+  "Millet" => "assets/logos/hh_millet.png",
+  "Helly Hansen" => "assets/logos/hh_helly_hansen.png",
+  "Smartwool" => "assets/logos/hh_smartwool.png",
+  "Garmin" => "assets/logos/hh_garmin.png",
+  "GoPro" => "assets/logos/hh_gopro.png",
+  "Fitbit" => "assets/logos/hh_fitbit.png"
+}
+
+brands_h.each do |brandname, logo_path|
+    brands << Brand.new(
+      :brand_name => brandname,
+      :logo => logo_path,
+      :brand_description   => Faker::Lorem.paragraph,
+      :sponsorship_rules   => Faker::Lorem.paragraph)
 end
 
 # Create Brand Owners
