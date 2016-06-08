@@ -6,7 +6,8 @@
           <h3 class="panel-title">Set Your Own horizon! <small>And get the funding you need</small></h3>
         </div>
         <div class="panel-body">
-          <form action="/projects" method="post">
+          <form action="/projects" method="post" enctype="multipart/form-data">
+            <h4>Project Basics</h4>
             <div class="form-group">
               <input type="text" name="project[project_name]" class="form-control input-sm" placeholder="Project Name">
             </div>
@@ -20,7 +21,42 @@
             </div>
 
              <div class="form-group">
-              <input type="text" id="autocomplete" class="form-control input-sm" onFocus="geolocate()" placeholder="Location (auto-complete)">
+              <input type="text" name="project[location]" id="autocomplete" class="form-control input-sm" onFocus="geolocate()" placeholder="Location (auto-complete)">
+            </div>
+
+            <hr>
+            <h4>Project Media</h4>
+            <strong>Project cover image</strong>
+            <div class="form-group">
+              <input type="file" name="coverphoto" class="form-control input-sm">
+            </div>
+
+
+            <div class="form-group">
+              <input type="text" name="project[website_url]" class="form-control input-sm" placeholder="Website">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="project[facebook_url]" class="form-control input-sm" placeholder="Facebook Page">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="project[twitter_handle]" class="form-control input-sm" placeholder="Twitter Handle">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="project[instagram_url]" class="form-control input-sm" placeholder="Instagram">
+            </div>
+
+            <hr>
+
+            <h4>Sponsorship Call</h4>
+            <div class="form-group">
+              <textarea name="project[target_audience]" class="form-control input-sm" placeholder="Target audience"></textarea>
+            </div>
+
+            <div class="form-group">
+              <textarea name="project[sponsorship_format]" class="form-control input-sm" placeholder="What kind of sponsoring are you looking for?"></textarea>
             </div>
 
             <input type="submit" value="Create your project" class="btn btn-info btn-block">

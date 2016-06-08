@@ -9,9 +9,26 @@ end
 
 post '/projects' do
   @project = Project.new(params[:project])
+  # Add default user
   @project.users << User.find(session[:user_id])
+
+  # Set tags
   tags = params[:tags]
   @project.tags = tags.split(" ")
+
+  # Set cover image url
+  params[:coverphoto][:filename] = "hh_#{@project.project_name}".filename.split(" ").join("_")
+  File.open(File.join(APP_ROOT, 'public', 'assets', 'projects' , params[:coverphoto][:filename]), "w") do |f|
+    f.write(params[:coverphoto][:tempfile].read)
+  end
+  base_path = "/assets/projects"
+  filename = params[:coverphoto][:filename]
+  path = [base_path, filename]
+  @project.cover_img_url = path.join('/')
+
+  # Set project status
+  @project.status = 1
+
   @project.save
   redirect "/projects/#{@project.id}"
 end
