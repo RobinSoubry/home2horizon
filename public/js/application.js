@@ -1,7 +1,13 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  setTab();
 });
+
+function setTab(){
+  var url = window.location.href
+  var lastSegment = "/" + url.split('/').pop();
+  $(".navbar-nav li a").each(function() {
+    if ($(this).attr('href') == lastSegment) {
+      $(this).parent().addClass("active");
+    }
+  });
+}
