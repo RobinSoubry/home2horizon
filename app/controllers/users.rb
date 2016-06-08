@@ -23,6 +23,20 @@ post '/users' do
       # After registration the user automatically gets access his views
     @user = User.find_by_email(params[:user][:email])
     session[:user_id] = @user.id
+
+    # Set cover image url
+    filename = "hh_#{@user.username.split(" ").join("_")}"
+    p '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+    params[:profilepic][:filename] = filename
+    File.open(File.join(APP_ROOT, 'public', 'assets', 'users' , params[:profilepic][:filename]), "w") do |f|
+      f.write(params[:profilepic][:tempfile].read)
+    end
+    base_path = "/assets/users"
+    filename = params[:profilepic][:filename]
+    path = [base_path, filename]
+    @user.profile_pic_url = path.join('/')
+    @user.save
+
     redirect "/profile"
   else
     erb :'users/register'
