@@ -4,7 +4,8 @@ class CreateProjects < ActiveRecord::Migration
       t.string :project_name, null: false
       t.text :project_description
       t.string :tags, array: true
-      t.string :location
+      t.decimal :lat, {:precision=>10, :scale=>6}
+      t.decimal :lng, {:precision=>10, :scale=>6}
       t.string :website_url
       t.string :logo_url
       t.string :cover_img_url
