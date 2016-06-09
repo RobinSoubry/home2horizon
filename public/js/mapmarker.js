@@ -23,13 +23,12 @@ function plotLocations(responseData){
       center: {lat: 0, lng: 0}
     });
 
-  var locations = responseData['locations'];
-  console.log(locations)
+  var projects = responseData['projects'];
 
-  setMarkers(map, locations);
+  setMarkers(map, projects);
 }
 
-function setMarkers(map, locations) {
+function setMarkers(map, projects) {
   var image = {
     url: '../assets/hh_mapmarker_small.png',
     size: new google.maps.Size(20, 20),
@@ -37,26 +36,17 @@ function setMarkers(map, locations) {
     anchor: new google.maps.Point(10, 10)
   };
 
-  for (var i = 0; i < locations.length; i++) {
+  for (var i = 0; i < projects.length; i++) {
     var myLatLng
 
-    geoLocationUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" + locations[i] + "&key=AIzaSyAYxe_ruMNpxR7Cvxsys5RkPCyN8BNozdA"
+    var myLatLng = new google.maps.LatLng(projects[i].lat, projects[i].lng)
 
-    var geoCodeLocation = $.ajax({
-      url: geoLocationUrl,
-      method: 'GET'
-    });
+    console.log(myLatLng);
 
-    geoCodeLocation.done(locationData);
-
-    function locationData(responseLongLat){
-      var myLatLng = responseLongLat.results[0].geometry.location
-      console.log(myLatLng);
-      var marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         icon: image
-      });
-    }
+    });
   }
 }

@@ -1,3 +1,7 @@
+require 'net/http'
+require 'json'
+require 'awesome_print'
+
 class Project < ActiveRecord::Base
   # Validations
   validates :project_name, presence: true
@@ -28,6 +32,16 @@ class Project < ActiveRecord::Base
     base_path = "/assets/projects"
     path = [base_path, filename]
     self.cover_img_url = path.join('/')
+  end
+
+  def set_location(location_string)
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location_string}&key=AIzaSyAYxe_ruMNpxR7Cvxsys5RkPCyN8BNozdA"
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    @location = JSON.parse(response)
+
+    self.lat = @location['results'][0]['geometry']['location']['lat']
+    self.lng = @location['results'][0]['geometry']['location']['lng']
   end
 
 end
