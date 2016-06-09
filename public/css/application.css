@@ -135,6 +135,7 @@ a.mail:hover{background-position:-150px 0;}
 
 .project-description{
   height: 400px;
+  overflow-y: scroll;
 }
 
 .sponsor-thumb{
