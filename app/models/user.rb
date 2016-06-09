@@ -23,4 +23,15 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def set_profile_pic(filename, tempfile)
+    filename = "hh_#{self.username}#{File.extname(tempfile)}".split(" ").join("_")
+    File.open(File.join(APP_ROOT, 'public', 'assets', 'users' , filename), "w") do |f|
+      f.write(tempfile.read)
+    end
+    base_path = "/assets/users"
+    path = [base_path, filename]
+    self.profile_pic_url = path.join('/')
+  end
+
 end
