@@ -11,12 +11,14 @@ post '/projects' do
   @project = Project.new(params[:project])
   @project.set_default_user(session[:user_id])
   @project.set_tags(params[:tags])
+  @project.set_location(params[:location])
 
   filename = params[:coverphoto][:filename]
   tempfile = params[:coverphoto][:tempfile]
   @project.set_cover_img(filename, tempfile)
   @project.status = 1
   @project.save
+  p @project
   redirect "/projects/#{@project.id}"
 end
 
@@ -29,10 +31,9 @@ end
 get '/locations' do
   if request.xhr?
     @projects = Project.all
-    @locations = @projects.map(&:location)
-    p @locations
+    @locations = @projects.map { |project| {lat: project.lat, lng: project.lng, title: project.project_name, id: project.id} }
     content_type :json
-      { :locations => @locations }.to_json
+      { :projects => @locations }.to_json
   else
     redirect '/projects'
   end
