@@ -26,7 +26,7 @@ window.fbAsyncInit = function() {
 
 function getFanLocations(){
   FB.api(
-    '/568867936464127/insights/page_fans_country?access_token=EAACEdEose0cBAGbDg9TIOZBLH6s3rgjfdI8miMjJB0F7inCcAEWYtzhZBNXfgUaMqNxhpLuZBHBf0mtGB98KsqVnZBeWZCqTWxktyDZAqkCad1Ydm7oFfxod5p1hfyx8X6afZCtlpPttLAkNwjVg4ZCZAJPr1Y0PhsabT7mtd1XlqjgZDZD',
+    '/568867936464127/insights/page_fans_country?access_token=EAACEdEose0cBAI6ZA95rbFIYffka98izMCxVNzjCPjsvarT0AwWeTVzeaCXwaoZAeciAoI9RwdepwTJjMZCW4BZCIEEZASPWXTgrPqlndj2AUG23jODzxDrde4aYIVZCqx1TSLc2EP0BMHtGGOPtcWrC6skCjjSMzSGNp3Kc8gVQZDZD',
     'GET',
     {},
     function(response) {
