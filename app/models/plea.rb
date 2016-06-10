@@ -1,4 +1,4 @@
-class Request < ActiveRecord::Base
+class Plea < ActiveRecord::Base
   # Validations
   validates :brand_id, :project_id, :status, presence: true
 

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   # Associations
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :brands
-  has_many :brand_requests, through: :brands, source: :requests
-  has_many :project_requests, through: :projects, source: :requests
+  has_many :brand_requests, through: :brands, source: :pleas
+  has_many :project_requests, through: :projects, source: :pleas
   has_many :likes, :as => :likeable
 
   # User authentication
