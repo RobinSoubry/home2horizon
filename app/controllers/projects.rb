@@ -31,6 +31,10 @@ end
 get '/projects/:id' do
   @project = Project.find(params[:id])
   @members = User.find(@project.users.ids)
+  @sponsored_requests = @project.requests { |request| request.status == 1 }
+  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq
+  @open_requests = @project.requests { |request| request.status == 0 }
+  @brands_open_requests = @open_requests.map(&:brand).uniq
   erb :'projects/detail'
 end
 
@@ -43,4 +47,12 @@ get '/locations' do
   else
     redirect '/projects'
   end
+end
+
+get '/projects/:id/requests/new' do
+  @project = Project.find(params[:id])
+  @brands = Brand.all
+  @brands_requests = @brands.map { |brand| {id: brand.id, name: brand.brand_name, requests: brand.requests.find_by_project_id(@project.id) } }
+  p @brands_requests
+  erb :'requests/new'
 end
