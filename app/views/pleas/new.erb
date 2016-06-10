@@ -16,7 +16,7 @@
       <td><a href="/brands/<%= brand[:id] %>"><%= brand[:name] %></a></td>
       <% if brand[:pleas] != nil %>
         <% if brand[:pleas][:status] == 0 %>
-          <td class="text-warning bg-warning">Open plea</td>
+          <td class="text-warning bg-warning">Open Sponsorship Request</td>
           <td><%= brand[:pleas][:special_note] %></td>
         <% else %>
           <td class="text-success bg-success">Existing Sponsor</td>
