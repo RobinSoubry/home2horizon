@@ -1,6 +1,6 @@
-class CreateRequests < ActiveRecord::Migration
+class CreatePleas < ActiveRecord::Migration
   def change
-    create_table :requests do |t|
+    create_table :pleas do |t|
       t.integer :brand_id, null: false
       t.integer :project_id, null: false
       t.text :special_note

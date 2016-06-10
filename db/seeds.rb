@@ -3,7 +3,7 @@ require 'faker'
 User.delete_all
 Brand.delete_all
 Project.delete_all
-Request.delete_all
+Plea.delete_all
 Like.delete_all
 
 
@@ -199,9 +199,9 @@ brands.each do |brand|
   end
 end
 
-# Create Requests
+# Create Pleas
 50.times do
-  Request.create(
+  Plea.create(
     brand_id: rand(1..brands.length),
     project_id: rand(1..projects.length),
     special_note: "I'm in test",

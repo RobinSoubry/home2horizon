@@ -31,10 +31,10 @@ end
 get '/projects/:id' do
   @project = Project.find(params[:id])
   @members = User.find(@project.users.ids)
-  @sponsored_requests = @project.requests { |request| request.status == 1 }
-  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq
-  @open_requests = @project.requests { |request| request.status == 0 }
-  @brands_open_requests = @open_requests.map(&:brand).uniq
+  @sponsored_pleas = @project.pleas { |plea| plea.status == 1 }
+  @sponsoring_brands = @sponsored_pleas.map(&:brand).uniq
+  @open_pleas = @project.pleas { |plea| plea.status == 0 }
+  @brands_open_pleas = @open_pleas.map(&:brand).uniq
   erb :'projects/detail'
 end
 
@@ -49,17 +49,18 @@ get '/locations' do
   end
 end
 
-get '/projects/:id/requests/new' do
+get '/projects/:id/pleas/new' do
   @project = Project.find(params[:id])
   @brands = Brand.all
-  @brands_requests = @brands.map { |brand| {id: brand.id, name: brand.brand_name, requests: brand.requests.find_by_project_id(@project.id) } }
-  p @brands_requests
-  erb :'requests/new'
+  @brands_pleas = @brands.map { |brand| {id: brand.id, name: brand.brand_name, pleas: brand.pleas.find_by_project_id(@project.id) } }
+  p @brands_pleas
+  erb :'pleas/new'
 end
 
-post '/projects/:id/requests' do
-  @request = Request.new(params[:request])
-  @request.save
+post '/projects/:id/pleas' do
+  @plea = Plea.new(params[:plea])
+  @plea.save
+  p @plea
   project_id = params[:id]
-  redirect "/projects/#{project_id}/requests/new"
+  redirect "/projects/#{project_id}/pleas/new"
 end

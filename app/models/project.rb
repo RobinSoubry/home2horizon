@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
   # Associations
   has_and_belongs_to_many :users
   has_many :likes, :as => :likeable
-  has_many :requests
+  has_many :pleas
 
   def set_default_user(creator)
     self.users << User.find(creator)
