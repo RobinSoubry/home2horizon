@@ -82,20 +82,27 @@
       </div>
 
       <% else %>
-        <% if @user.id == session[:user_id] %>
-          <h3>Your project has no sponsors</h3>
-          <form action="/projects/<%= @project.id %>/requests/new">
-            <input type="submit" value="Find A Sponsor!">
-          </form>
-        <% else %>
-          <h3>Sponsor this project!</h3>
-          <a href="#">Make it happen!</a>
-        <% end %>
+      <% if @user.id == session[:user_id] %>
+      <h3>Your project has no sponsors</h3>
+      <form action="/projects/<%= @project.id %>/requests/new">
+        <input type="submit" value="Find A Sponsor!">
+      </form>
+      <% else %>
+      <h3>Sponsor this project!</h3>
+      <a href="#">Make it happen!</a>
+      <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
 <hr>
+
+<% if @project.id == 1 %>
+<div id="fan-map">
+<h1>Here goes the map with fan data</h1>
+</div>
+<% end %>
+
 
 </div>

@@ -35,7 +35,7 @@ get '/projects/:id' do
   @sponsoring_brands = @sponsored_pleas.map(&:brand).uniq
   @open_pleas = @project.pleas { |plea| plea.status == 0 }
   @brands_open_pleas = @open_pleas.map(&:brand).uniq
-  erb :'projects/detail'
+  erb :'projects/detail', layout: :detailed_project_layout
 end
 
 get '/locations' do
