@@ -11,11 +11,17 @@ post '/projects' do
   @project = Project.new(params[:project])
   @project.set_default_user(session[:user_id])
   @project.set_tags(params[:tags])
-  @project.set_location(params[:location])
+  if params[:location] != nil
+    @project.set_location(params[:location])
+  end
 
-  filename = params[:coverphoto][:filename]
-  tempfile = params[:coverphoto][:tempfile]
-  @project.set_cover_img(filename, tempfile)
+  if params[:coverphoto] != nil
+    filename = params[:coverphoto][:filename]
+    tempfile = params[:coverphoto][:tempfile]
+    @project.set_cover_img(filename, tempfile)
+  else
+    @project.cover_img_url = "/assets/projects/hh_default.jpg"
+  end
   @project.status = 1
   @project.save
   p @project
