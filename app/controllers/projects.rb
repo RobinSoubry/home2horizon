@@ -24,11 +24,13 @@ post '/projects' do
   end
   @project.status = 1
   @project.save
+
   p @project
   redirect "/projects/#{@project.id}"
 end
 
 get '/projects/:id' do
+  @user = User.find(session[:user_id])
   @project = Project.find(params[:id])
   @members = User.find(@project.users.ids)
   @sponsored_pleas = @project.pleas { |plea| plea.status == 1 }

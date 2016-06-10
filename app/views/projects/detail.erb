@@ -84,8 +84,8 @@
       <% else %>
       <% if @user.id == session[:user_id] %>
       <h3>Your project has no sponsors</h3>
-      <form action="/projects/<%= @project.id %>/requests/new">
-        <input type="submit" value="Find A Sponsor!">
+      <form action="/projects/<%= @project.id %>/pleas/new">
+        <input class="btn btn-success" type="submit" value="Find A Sponsor!">
       </form>
       <% else %>
       <h3>Sponsor this project!</h3>
