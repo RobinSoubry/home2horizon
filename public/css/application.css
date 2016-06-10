@@ -142,3 +142,15 @@ a.mail:hover{background-position:-150px 0;}
   height: 64px;
   width: 64px;
 }
+
+#fan-map {
+    height: 500px;
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
