@@ -22,28 +22,28 @@
   <div class="row">
     <% if !@projects.empty? %>
         <% if @projects.has_key?(1) && @projects.has_key?(0) %>
-          <h3>Your current projects</h3>
+          <h3>Current projects</h3>
           <ul>
           <% @projects[1].each do |project| %>
             <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
             <% end %>
           </ul>
           <hr>
-          <h3>Your past projects</h3>
+          <h3>Past projects</h3>
           <ul>
           <% @projects[0].each do |project| %>
             <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
             <% end %>
           </ul>
         <% elsif @projects.has_key?(1) %>
-          <h3>Your current projects</h3>
+          <h3>Current projects</h3>
           <ul>
           <% @projects[1].each do |project| %>
             <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
             <% end %>
           </ul>
         <% else @projects.has_key?(0) %>
-          <h3>Your current projects</h3>
+          <h3>Current projects</h3>
           <ul>
           <% @projects[0].each do |project| %>
             <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
@@ -52,29 +52,28 @@
         <% end %>
     <% else %>
     <h3>You have no projects</h3>
-    <a href="/projects/new">You have no projects</a>
+    <a href="/projects/new">You have no projects, Create your own adventure!</a>
     <% end %>
   </div>
 
   <hr>
 
   <div class="row">
-      <% if !@projects.empty? %>
-      <h3>Your Sponsors</h3>
-
-        <% @sponsoring_brands.each do |brand| %>
-        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
-          <% if @user.id == session[:user_id] %>
-            <a href="/brands/<%= brand.id %>"><img src="<%= brand.logo %>" alt="" class="sponsor-thumb"></a>
-        <% else %>
-          <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb img-rounded"></a>
-        <% end %>
-        </div>
-      <% end %>
+    <% if !@sponsoring_brands.empty? %>
+    <h3>Sponsors</h3>
+    <% @sponsoring_brands.each do |brand| %>
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
+      <% if @user.id == session[:user_id] %>
+      <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb"></a>
       <% else %>
-      <h3>You have no Sponsors</h3>
-      <a href="/brands">Look for a sponsor!</a>
+      <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb img-rounded"></a>
       <% end %>
     </div>
+    <% end %>
+    <% else %>
+    <h3>You have no Sponsors</h3>
+    <a href="/brands">Look for a sponsor!</a>
+    <% end %>
+  </div>
 
 </div>

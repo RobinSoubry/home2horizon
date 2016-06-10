@@ -23,10 +23,13 @@ post '/users' do
       # After registration the user automatically gets access his views
     @user = User.find_by_email(params[:user][:email])
     session[:user_id] = @user.id
-
-    filename = params[:profilepic][:filename]
-    tempfile = params[:profilepic][:tempfile]
-    @user.set_profile_pic(filename, tempfile)
+    if params[:profilepic] != nil
+      filename = params[:profilepic][:filename]
+      tempfile = params[:profilepic][:tempfile]
+      @user.set_profile_pic(filename, tempfile)
+    else
+      @user.profile_pic_url = "/assets/users/hh_default_avatar.jpg"
+    end
     @user.save
     redirect "/profile"
   else

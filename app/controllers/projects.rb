@@ -11,11 +11,17 @@ post '/projects' do
   @project = Project.new(params[:project])
   @project.set_default_user(session[:user_id])
   @project.set_tags(params[:tags])
-  @project.set_location(params[:location])
+  if params[:location] != nil
+    @project.set_location(params[:location])
+  end
 
-  filename = params[:coverphoto][:filename]
-  tempfile = params[:coverphoto][:tempfile]
-  @project.set_cover_img(filename, tempfile)
+  if params[:coverphoto] != nil
+    filename = params[:coverphoto][:filename]
+    tempfile = params[:coverphoto][:tempfile]
+    @project.set_cover_img(filename, tempfile)
+  else
+    @project.cover_img_url = "/assets/projects/hh_default.jpg"
+  end
   @project.status = 1
   @project.save
   p @project
@@ -25,6 +31,10 @@ end
 get '/projects/:id' do
   @project = Project.find(params[:id])
   @members = User.find(@project.users.ids)
+  @sponsored_requests = @project.requests { |request| request.status == 1 }
+  @sponsoring_brands = @sponsored_requests.map(&:brand).uniq
+  @open_requests = @project.requests { |request| request.status == 0 }
+  @brands_open_requests = @open_requests.map(&:brand).uniq
   erb :'projects/detail'
 end
 
@@ -37,4 +47,23 @@ get '/locations' do
   else
     redirect '/projects'
   end
+end
+
+get '/projects/:id/requests/new' do
+  @project = Project.find(params[:id])
+  @brands = Brand.all
+  @brands_requests = @brands.map { |brand| {id: brand.id, name: brand.brand_name, requests: brand.requests.find_by_project_id(@project.id) } }
+  p @brands_requests
+  erb :'requests/new'
+end
+
+post '/projects/:id/requests' do
+  p '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+  @request = Request.new(params[:request])
+  p @request
+  @request.save
+  p @request
+  project_id = params[:id]
+  p "/projects/#{project_id}/requests/new"
+  redirect '/'
 end
