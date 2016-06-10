@@ -25,7 +25,7 @@
       <% else %>
           <td colspan="2">
             <form action="/projects/<%= @project.id %>/pleas" method="post">
-              <input class="btn btn-default" type="submit" value="Make a plea">
+              <input class="btn btn-default" type="submit" value="Request Sponsorship!">
               <input type="hidden" name="plea[brand_id]" value="<%= brand[:id] %>">
               <input type="hidden" name="plea[status]" value="0">
               <input type="hidden" name="plea[project_id]" value="<%= @project.id %>">
