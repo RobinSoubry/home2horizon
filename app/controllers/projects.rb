@@ -56,3 +56,14 @@ get '/projects/:id/requests/new' do
   p @brands_requests
   erb :'requests/new'
 end
+
+post '/projects/:id/requests' do
+  p '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+  @request = Request.new(params[:request])
+  p @request
+  @request.save
+  p @request
+  project_id = params[:id]
+  p "/projects/#{project_id}/requests/new"
+  redirect '/'
+end

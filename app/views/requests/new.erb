@@ -23,8 +23,14 @@
           <td><%= brand[:requests][:special_note] %></td>
         <% end %>
       <% else %>
-          <td class="text-primary bg-info">Has no request</td>
-          <td>john@example.com</td>
+          <td colspan="2">
+            <form action="/projects/<%= @project.id %>/requests" method="post">
+              <input class="btn btn-default" type="submit" value="Make a request">
+              <input type="hidden" name="request[brand_id]" value="<%= brand[:id] %>">
+              <input type="hidden" name="request[status]" value="0">
+              <input type="hidden" name="request[project_id]" value="<%= @project.id %>">
+              <input type="text" name="request[special_note]" placeholder="Special Note">
+            </form>
       <% end %>
     </tr>
    <% end %>
