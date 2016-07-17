@@ -31,3 +31,8 @@ Home To Horizon aims to create a marketplace for sponsorship requests.
   * Google Maps Mapmarker
   * Facebook Pages (# Fans)
   * HighCharts (Display # of page fans per country on world map)
+
+# To Do
+* Fix Facebook API key
+* Hide overall API keys for security purposes
+* Brand dashboard
