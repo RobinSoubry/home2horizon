@@ -32,7 +32,8 @@ _A project page displays some basic information to give brands and other users a
 ![Project form](/screenshots/hh_create_project.png "Project form")
 _A registred user can create a new project. The form accepts images and uses a default image if none provided._
 
-
+![Sponsorship requests](/screenshots/hh_create_project.png "Sponsorship request page")
+_the owner of a project can request sponsorship by all related brands in just a few clicks. The brand manager will than receive a request with the project details, special note and an evaluation of the social media reach._
 
 
 #### Technology Stack
