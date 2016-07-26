@@ -1,0 +1,39 @@
+<div class="container">
+<h1>Make it happen - Request Sponsorship!</h1>
+<h4>Browse through our brands and make your plea</h4>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @brands_pleas.each do |brand| %>
+    <tr>
+      <td><a href="/brands/<%= brand[:id] %>"><%= brand[:name] %></a></td>
+      <% if brand[:pleas] != nil %>
+        <% if brand[:pleas][:status] == 0 %>
+          <td class="text-warning bg-warning">Open Sponsorship Request</td>
+          <td><%= brand[:pleas][:special_note] %></td>
+        <% else %>
+          <td class="text-success bg-success">Existing Sponsor</td>
+          <td><%= brand[:pleas][:special_note] %></td>
+        <% end %>
+      <% else %>
+          <td colspan="2">
+            <form action="/projects/<%= @project.id %>/pleas" method="post">
+              <input class="btn btn-default" type="submit" value="Request Sponsorship!">
+              <input type="hidden" name="plea[brand_id]" value="<%= brand[:id] %>">
+              <input type="hidden" name="plea[status]" value="0">
+              <input type="hidden" name="plea[project_id]" value="<%= @project.id %>">
+              <input type="text" name="plea[special_note]" placeholder="Special Note">
+            </form>
+      <% end %>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+</div>

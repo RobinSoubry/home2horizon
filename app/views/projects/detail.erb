@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+  <!-- TO DO : set default image if none set -->
+    <div class="col-md-4">
+      <div class="panel panel-primary project-description">
+          <div class="panel-heading">
+            <h3><%= @project.project_name %></h3>
+          </div>
+          <div class="panel-footer">
+          <p><%= @project.project_description %></p>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <img src="<%= @project.cover_img_url %>" class="img-responsive cover project-cover img-rounded" alt="<%= @project.project_name %>">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-6"> <!-- Team members -->
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>Team members</h3>
+          </div>
+          <div class="panel-footer">
+          <% @members.each do |member| %>
+              <a href="/users/<%= member.username %>"><span class="text-left"><%= member.username %></span></a><br><br>
+          <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Audience</h3>
+        </div>
+        <div class="panel-footer">
+          <dl class="dl-horizontal">
+            <dt>Target Audience:</dt>
+            <dd><%= @project.target_audience %></dd>
+            <dt>Desired Sponsorship:</dt>
+            <dd><%= @project.sponsorship_format %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <% if !@sponsoring_brands.empty? %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Sponsors</h3>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <% @sponsoring_brands.each do |brand| %>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
+              <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb"></a>
+            </div>
+            <% end %>
+          </div>
+          <div class="row">
+            <br>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <form action="/projects/<%= @project.id %>/pleas/new">
+                <input class="btn btn-success" type="submit" value="Find More Sponsors!">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% else %>
+          <% if @user.id == session[:user_id] %>
+            <h3>Your project has no sponsors</h3>
+            <form action="/projects/<%= @project.id %>/pleas/new">
+              <input class="btn btn-success" type="submit" value="Find A Sponsor!">
+            </form>
+          <% else %>
+          <h3>Sponsor this project!</h3>
+          <a href="#">Make it happen!</a>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<% if @project.id == 1 %>
+<div id="fan-map">
+<h1>Here goes the map with fan data</h1>
+</div>
+<% end %>
+
+
+</div>

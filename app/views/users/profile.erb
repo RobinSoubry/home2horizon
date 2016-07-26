@@ -1,5 +1,79 @@
 <div class="container">
-  <div class="row centered">
-    <h1>Welcome <%= @user.username %></h1>
+  <div class="row">
+
+
+    <div class="col-md-4">
+      <img src=<%= @user.profile_pic_url%> alt="">
+    </div>
+
+    <div class="col-md-8 text-left">
+      <h2><%= @user.username %></h2><br>
+      <p><%= @user.personal_description %></p>
+      <% if @user.id == session[:user_id] %>
+      <div class="bottom-align-text">
+        <a href="/profile/edit">edit</a>
+      </div>
+      <% end %>
+    </div>
   </div>
+
+  <hr>
+
+  <div class="row">
+    <% if !@projects.empty? %>
+        <% if @projects.has_key?(1) && @projects.has_key?(0) %>
+          <h3>Current projects</h3>
+          <ul>
+          <% @projects[1].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+          <hr>
+          <h3>Past projects</h3>
+          <ul>
+          <% @projects[0].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% elsif @projects.has_key?(1) %>
+          <h3>Current projects</h3>
+          <ul>
+          <% @projects[1].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% else @projects.has_key?(0) %>
+          <h3>Current projects</h3>
+          <ul>
+          <% @projects[0].each do |project| %>
+            <li><a href="/projects/<%= project.id %>"><%= project.project_name %></a></li>
+            <% end %>
+          </ul>
+        <% end %>
+    <% else %>
+    <h3>You have no projects</h3>
+    <a href="/projects/new">You have no projects, Create your own adventure!</a>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <% if !@sponsoring_brands.empty? %>
+    <h3>Sponsors</h3>
+    <% @sponsoring_brands.each do |brand| %>
+    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
+      <% if @user.id == session[:user_id] %>
+      <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb"></a>
+      <% else %>
+      <a href="/brands/<%= brand.id %>"><img src="../<%= brand.logo %>" alt="" class="sponsor-thumb img-rounded"></a>
+      <% end %>
+    </div>
+    <% end %>
+    <% else %>
+    <h3>You have no Sponsors</h3>
+    <a href="/brands">Look for a sponsor!</a>
+    <% end %>
+  </div>
+
 </div>

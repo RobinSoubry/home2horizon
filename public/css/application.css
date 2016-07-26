@@ -107,7 +107,10 @@ a.instagram:hover{background-position:-90px 0;}
 a.mail{display:block; background: url(../assets/hh_social_sprite.png) no-repeat -150px -30px; width:30px; height:30px;}
 a.mail:hover{background-position:-150px 0;}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14fe5287051457bc3e70bc7d3ee9824bba1e58ce
 /*Google Maps*/
 #map-canvas {
     width: 100%;
@@ -116,3 +119,45 @@ a.mail:hover{background-position:-150px 0;}
     float: left;
     margin-left: 10px;
 }
+<<<<<<< HEAD
+=======
+
+/* Image Styling */
+.cover {
+  width: 100%;
+  display: block;
+}
+
+.project-cover{
+  height: 400px;
+}
+
+.thumbnail{
+  width: 100%;
+  display: block;
+  height: 175px;
+
+}
+
+.project-description{
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.sponsor-thumb{
+  height: 64px;
+  width: 64px;
+}
+
+#fan-map {
+    height: 500px;
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+>>>>>>> 14fe5287051457bc3e70bc7d3ee9824bba1e58ce

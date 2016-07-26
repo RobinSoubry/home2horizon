@@ -15,6 +15,10 @@ gem 'bcrypt'
 
 gem 'shotgun'
 
+gem 'carrierwave'
+
+gem 'awesome_print'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
