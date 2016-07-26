@@ -26,7 +26,8 @@ _Homepage with a dropdown for login_
 ![Overview of projects](/screenshots/hh_projects.png "Overview projects")
 _A user can browse through projects of interest_
 
-
+![Project details](/screenshots/hh_project_detail.png "Project details")
+_A project page displays some basic information to give brands and other users an idea about the concept. In this view, statistics about the project's fanpage are displayed (only accessible to project owners and brand managers) for evaluation puroposes of sponsorship requests._
 
 
 #### Technology Stack
