@@ -33,8 +33,10 @@ _A project page displays some basic information to give brands and other users a
 _A registred user can create a new project. The form accepts images and uses a default image if none provided._
 
 ![Sponsorship requests](/screenshots/hh_create_project.png "Sponsorship request page")
-_the owner of a project can request sponsorship by all related brands in just a few clicks. The brand manager will than receive a request with the project details, special note and an evaluation of the social media reach._
+_The owner of a project can request sponsorship by all related brands in just a few clicks. The brand manager will than receive a request with the project details, special note and an evaluation of the social media reach._
 
+![User profile](/screenshots/hh_profile.png "User profile")
+_Next to project pages, users can manage their own profile, participate in multiple projects and have their own sponsors._
 
 #### Technology Stack
 * Sinatra
