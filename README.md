@@ -23,6 +23,11 @@ Home To Horizon aims to create a marketplace for sponsorship requests.
 ![home to horizon homepage + login](/screenshots/hh_login.png "Home to Horizon home page + login dropdown")
 _Homepage with a dropdown for login_
 
+![Overview of projects](/screenshots/hh_projects.png "Overview projects")
+_A user can browse through projects of interest_
+
+
+
 
 #### Technology Stack
 * Sinatra
