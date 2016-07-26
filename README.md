@@ -26,11 +26,11 @@ _Homepage with a dropdown for login_
 ![Overview of projects](/screenshots/hh_projects.png "Overview projects")
 _A user can browse through projects of interest_
 
-![Project details](/screenshots/hh_project_detail.png "Project details")
-_A project page displays some basic information to give brands and other users an idea about the concept. In this view, statistics about the project's fanpage are displayed (only accessible to project owners and brand managers) for evaluation puroposes of sponsorship requests._
-
 ![Project form](/screenshots/hh_create_project.png "Project form")
 _A registred user can create a new project. The form accepts images and uses a default image if none provided._
+
+![Project details](/screenshots/hh_project_detail.png "Project details")
+_A project page displays some basic information to give brands and other users an idea about the concept. In this view, statistics about the project's fanpage are displayed (only accessible to project owners and brand managers) for evaluation puroposes of sponsorship requests._
 
 ![Sponsorship requests](/screenshots/hh_create_project.png "Sponsorship request page")
 _The owner of a project can request sponsorship by all related brands in just a few clicks. The brand manager will than receive a request with the project details, special note and an evaluation of the social media reach._
