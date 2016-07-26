@@ -20,6 +20,10 @@ Home To Horizon aims to create a marketplace for sponsorship requests.
 * __Explorers__ can create a detailed profile for their project, link their different media (Facebook page, Instagram account, Twitter handle, etc.) and request sponsorship in an efficient and convenient way.
 * __Brand Managers__ receives the request with key performance indicators on audience size and its fit with the company's policy. He/she can then easily benchmark different projects and grand the fund, gear or other with a few simple clicks.
 
+![home to horizon homepage + login](/screenshots/hh_login.png "Home to Horizon home page + login dropdown")
+_Homepage with a dropdown for login_
+
+
 #### Technology Stack
 * Sinatra
 * PostgreSQL
