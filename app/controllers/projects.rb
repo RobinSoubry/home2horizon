@@ -43,6 +43,8 @@ end
 get '/locations' do
   if request.xhr?
     @projects = Project.all
+    @lats = @projects.map { |project| {lats: project.lat }}
+    p @lats
     @locations = @projects.map { |project| {lat: project.lat, lng: project.lng, title: project.project_name, id: project.id} }
     content_type :json
       { :projects => @locations }.to_json

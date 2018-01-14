@@ -1,4 +1,4 @@
-class CreatePleas < ActiveRecord::Migration
+class CreatePleas < ActiveRecord::Migration[5.1]
   def change
     create_table :pleas do |t|
       t.integer :brand_id, null: false
