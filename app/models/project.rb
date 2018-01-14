@@ -35,10 +35,11 @@ class Project < ActiveRecord::Base
   end
 
   def set_location(location_string)
-    url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location_string}&key=AIzaSyAYxe_ruMNpxR7Cvxsys5RkPCyN8BNozdA"
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location_string}&key=AIzaSyD-I2nzQcvXC-iqKxHBgKa18_wI4QMcZHQ"
     uri = URI(url)
     response = Net::HTTP.get(uri)
     @location = JSON.parse(response)
+    p @location
 
     self.lat = @location['results'][0]['geometry']['location']['lat']
     self.lng = @location['results'][0]['geometry']['location']['lng']
